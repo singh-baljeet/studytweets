@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TweetsStructure.Web.Models.FrontEndModel>
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Created On
+            </th>
+            <th>
+                Deleted
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <span>@item.FrontEndName</span> 
+            </td>
+            <td>
+                <span>@item.CreatedOn</span> 
+            </td>
+            <td>
+                <span>@item.Deleted</span> 
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "FindOne", new { Id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { Id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { Id = item.Id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+

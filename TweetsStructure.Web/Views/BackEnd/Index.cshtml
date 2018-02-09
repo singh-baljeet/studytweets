@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TweetsStructure.Web.Models.BackEndModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Created On
+            </th>
+            <th>
+                Deleted
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <span>@item.BackEndName</span>
+                </td>
+                <td>
+                    <span>@item.CreatedOn.ToShortDateString()</span>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "FindOne", new { Id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { Id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</body>
+</html>

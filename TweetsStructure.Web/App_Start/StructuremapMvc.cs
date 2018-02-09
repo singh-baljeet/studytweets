@@ -32,6 +32,7 @@ namespace TweetsStructure.Web.App_Start {
         public static void Start() {
 			IContainer container = IoC.Initialize<Infrastructure.Configuration.Configuration,FrontEndMap>(x => {
                 x.For<IFrontEndHelper>().Use<FrontEndHelper>();
+                x.For<IBackEndHelper>().Use<BackEndHelper>();
             });
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new StructureMapDependencyResolver(container);

@@ -31,14 +31,10 @@
                 <span>@item.FrontEndName</span> 
             </td>
             <td>
-                <span>@item.CreatedOn</span> 
-            </td>
-            <td>
-                <span>@item.Deleted</span> 
+                <span>@item.CreatedOn.ToShortDateString()</span> 
             </td>
             <td>
                 @Html.ActionLink("Edit", "FindOne", new { Id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { Id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { Id = item.Id })
             </td>
         </tr>
